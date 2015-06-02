@@ -22,9 +22,10 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
      * @covers ::__construct
      * @dataProvider validFqsenProvider
      */
-    public function testValidFormats($fqsen)
+    public function testValidFormats($fqsen, $name)
     {
-        new Fqsen($fqsen);
+        $instance  = new Fqsen($fqsen);
+        $this->assertEquals($name, $instance->getName());
     }
 
     /**
@@ -35,15 +36,15 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
     public function validFqsenProvider()
     {
         return [
-            ['\My\Space'],
-            ['\My\Space\myFunction()'],
-            ['\My\Space\MY_CONSTANT'],
-            ['\My\Space\MyClass'],
-            ['\My\Space\MyInterface'],
-            ['\My\Space\MyTrait'],
-            ['\My\Space\MyClass::myMethod()'],
-            ['\My\Space\MyClass::$my_property'],
-            ['\My\Space\MyClass::MY_CONSTANT'],
+            ['\My\Space', 'Space'],
+            ['\My\Space\myFunction()', 'myFunction'],
+            ['\My\Space\MY_CONSTANT', 'MY_CONSTANT'],
+            ['\My\Space\MyClass', 'MyClass'],
+            ['\My\Space\MyInterface', 'MyInterface'],
+            ['\My\Space\MyTrait', 'MyTrait'],
+            ['\My\Space\MyClass::myMethod()', 'myMethod'],
+            ['\My\Space\MyClass::$my_property', 'my_property'],
+            ['\My\Space\MyClass::MY_CONSTANT', 'MY_CONSTANT'],
         ];
     }
 
