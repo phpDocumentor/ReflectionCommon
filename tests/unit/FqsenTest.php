@@ -39,6 +39,7 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
             ['\My\Space', 'Space'],
             ['\My\Space\myFunction()', 'myFunction'],
             ['\My\Space\MY_CONSTANT', 'MY_CONSTANT'],
+            ['\My\Space\MY_CONSTANT2', 'MY_CONSTANT2'],
             ['\My\Space\MyClass', 'MyClass'],
             ['\My\Space\MyInterface', 'MyInterface'],
             ['\My\Space\MyTrait', 'MyTrait'],
