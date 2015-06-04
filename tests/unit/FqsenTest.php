@@ -36,6 +36,7 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
     public function validFqsenProvider()
     {
         return [
+            ['\\', ''],
             ['\My\Space', 'Space'],
             ['\My\Space\myFunction()', 'myFunction'],
             ['\My\Space\MY_CONSTANT', 'MY_CONSTANT'],
