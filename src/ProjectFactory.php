@@ -22,5 +22,5 @@ interface ProjectFactory
      * @param string[] $files
      * @return Project
      */
-    public function create($files);
+    public function create(array $files);
 }
