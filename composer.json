@@ -10,6 +10,9 @@
             "email": "opensource@ijaap.nl"
         }
     ],
+    "require": {
+        "php": ">=5.5"
+    },
     "autoload" : {
       "psr-4" : {
         "phpDocumentor\\Reflection\\": ["src"]
