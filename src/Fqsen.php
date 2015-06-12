@@ -24,6 +24,11 @@ final class Fqsen
     private $fqsen;
 
     /**
+     * @var string name of the element without path.
+     */
+    private $name;
+
+    /**
      * Initializes the object.
      *
      * @param string $fqsen
@@ -32,7 +37,9 @@ final class Fqsen
      */
     public function __construct($fqsen)
     {
-        $result = preg_match('/^\\\\([A-Za-z_\\\\]+)(::\\$?[a-zA-Z_]+)?(\\(\\))?$/', $fqsen);
+        $matches = array();
+        $result = preg_match('/^\\\\([\\w_\\\\]*)(?:[:]{2}\\$?([\\w_]+))?(?:\\(\\))?$/', $fqsen, $matches);
+
         if ($result === 0) {
             throw new \InvalidArgumentException(
                 sprintf('"%s" is not a valid Fqsen.', $fqsen)
@@ -40,6 +47,13 @@ final class Fqsen
         }
 
         $this->fqsen = $fqsen;
+
+        if (isset($matches[2])) {
+            $this->name = $matches[2];
+        } else {
+            $matches = explode('\\', $fqsen);
+            $this->name = trim(end($matches), '()');
+        }
     }
 
     /**
@@ -50,5 +64,15 @@ final class Fqsen
     public function __toString()
     {
         return $this->fqsen;
+    }
+
+    /**
+     * Returns the name of the element without path.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
