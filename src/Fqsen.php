@@ -16,7 +16,7 @@ namespace phpDocumentor\Reflection;
  *
  * @link https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc-meta.md
  */
-class Fqsen
+final class Fqsen
 {
     /**
      * @var string full quallified class name
