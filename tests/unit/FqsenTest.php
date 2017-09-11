@@ -43,6 +43,7 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
             ['\My\Space\MY_CONSTANT2', 'MY_CONSTANT2'],
             ['\My\Space\MyClass', 'MyClass'],
             ['\My\Space\MyInterface', 'MyInterface'],
+            ['\My\Space\Option«T»', 'Option«T»'],
             ['\My\Space\MyTrait', 'MyTrait'],
             ['\My\Space\MyClass::myMethod()', 'myMethod'],
             ['\My\Space\MyClass::$my_property', 'my_property'],
@@ -72,6 +73,7 @@ class FqsenTest extends \PHPUnit_Framework_TestCase
             ['\My\*'],
             ['\My\Space\.()'],
             ['My\Space'],
+            ['1_function()']
         ];
     }
 
