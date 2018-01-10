@@ -11,11 +11,13 @@
 
 namespace phpDocumentor\Reflection;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class FqsenTest
  * @coversDefaultClass phpDocumentor\Reflection\Fqsen
  */
-class FqsenTest extends \PHPUnit_Framework_TestCase
+class FqsenTest extends TestCase
 {
     /**
      * @param string $fqsen
