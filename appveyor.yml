@@ -51,4 +51,4 @@ install:
 
 test_script:
   - cd c:\reflectioncommon
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --no-coverage
