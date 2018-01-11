@@ -1,10 +1,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Travis Status](https://travis-ci.org/phpDocumentor/ReflectionCommon.svg?branch=master)](https://travis-ci.org/phpDocumentor/ReflectionCommon)
-[![Appveyor Status](https://ci.appveyor.com/api/projects/status/dqfo59yk4u0tdlrb/branch/master?svg=true)](https://ci.appveyor.com/project/phpDocumentor/reflectioncommon/branch/master)
-[![Code Quality](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/phpDocumentor/ReflectionCommon/badge.svg?branch=master)](https://coveralls.io/github/phpDocumentor/ReflectionCommon?branch=master)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
+[![Travis Status](https://img.shields.io/travis/phpDocumentor/ReflectionCommon.svg?label=Linux)](https://travis-ci.org/phpDocumentor/ReflectionCommon)
+[![Appveyor Status](https://img.shields.io/appveyor/ci/phpDocumentor/ReflectionCommon.svg?label=Windows)](https://ci.appveyor.com/project/phpDocumentor/ReflectionCommon/branch/master)
+[![Coveralls Coverage](https://img.shields.io/coveralls/github/phpDocumentor/ReflectionCommon.svg)](https://coveralls.io/github/phpDocumentor/ReflectionCommon?branch=master)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/phpDocumentor/ReflectionCommon.svg)](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/phpDocumentor/ReflectionCommon.svg)](https://scrutinizer-ci.com/g/phpDocumentor/ReflectionCommon/?branch=master)
+[![Stable Version](https://img.shields.io/packagist/v/phpDocumentor/ReflectionCommon.svg)](https://packagist.org/packages/phpDocumentor/ReflectionCommon)
+[![Unstable Version](https://img.shields.io/packagist/vpre/phpDocumentor/ReflectionCommon.svg)](https://packagist.org/packages/phpDocumentor/ReflectionCommon)
 
 
 ReflectionCommon
