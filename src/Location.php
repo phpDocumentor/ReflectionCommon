@@ -17,7 +17,7 @@ namespace phpDocumentor\Reflection;
  */
 final class Location
 {
-    /** @var int  */
+    /** @var int */
     private $lineNumber = 0;
 
     /** @var int */
@@ -31,7 +31,7 @@ final class Location
      */
     public function __construct($lineNumber, $columnNumber = 0)
     {
-        $this->lineNumber   = $lineNumber;
+        $this->lineNumber = $lineNumber;
         $this->columnNumber = $columnNumber;
     }
 

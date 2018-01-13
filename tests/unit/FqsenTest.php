@@ -26,7 +26,7 @@ class FqsenTest extends TestCase
      */
     public function testValidFormats($fqsen, $name)
     {
-        $instance  = new Fqsen($fqsen);
+        $instance = new Fqsen($fqsen);
         $this->assertEquals($name, $instance->getName());
     }
 
@@ -75,7 +75,7 @@ class FqsenTest extends TestCase
             ['\My\*'],
             ['\My\Space\.()'],
             ['My\Space'],
-            ['1_function()']
+            ['1_function()'],
         ];
     }
 
@@ -87,6 +87,6 @@ class FqsenTest extends TestCase
     {
         $className = new Fqsen('\\phpDocumentor\\Application');
 
-        $this->assertEquals('\\phpDocumentor\\Application', (string)$className);
+        $this->assertEquals('\\phpDocumentor\\Application', (string) $className);
     }
 }
