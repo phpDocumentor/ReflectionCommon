@@ -11,17 +11,13 @@ matrix:
 
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
-  - wget https://phar.io/releases/phive.phar
-  - php phive.phar install --trust-gpg-keys 4AA394086372C20A --target ./ phpunit
 
 jobs:
   include:
     - stage: coverage
       php: 7.1
-      before_script:
-        - composer require phpunit/phpunit
       script:
-        - ./vendor/bin/phpunit
+        - phpunit
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar && php php-coveralls.phar --verbose
@@ -29,7 +25,8 @@ jobs:
     - stage: lint
       php: 7.1
       before_script:
-        - php phive.phar install --trust-gpg-keys 8E730BA25823D8B5 --target ./ phpstan
+        - wget https://phar.io/releases/phive.phar
+        - php phive.phar --no-progress install --trust-gpg-keys 8E730BA25823D8B5 --target ./ phpstan
       script:
         - ./phpstan analyse src --level max --configuration phpstan.neon
         - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
