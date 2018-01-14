@@ -27,7 +27,7 @@ jobs:
       script:
         - ./vendor/bin/phpunit
       after_script:
-        - travis_retry php phive.phar --no-progress install --trust-gpg-keys E82B2FB314E9906E php-coveralls && ./tools/php-coveralls --verbose
+        - travis_retry php phive.phar --no-progress install --trust-gpg-keys E82B2FB314E9906E php-coveralls/php-coveralls && ./tools/php-coveralls --verbose
         - travis_retry wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
 
     - stage: lint
