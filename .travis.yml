@@ -14,18 +14,17 @@ matrix:
 
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
-  - wget https://phar.phpunit.de/phpunit.phar
 
 jobs:
   include:
     - stage: test
       script:
-      - php phpunit.phar --no-coverage
+      - wget https://phar.phpunit.de/phpunit.phar && php phpunit.phar --no-coverage
 
     - stage: coverage
       php: 7.1
       script:
-        - php phpunit.phar
+        - wget https://phar.phpunit.de/phpunit.phar && php phpunit.phar
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar && php coveralls.phar --verbose
