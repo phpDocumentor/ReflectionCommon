@@ -18,22 +18,28 @@ install:
 jobs:
   include:
     - stage: test
+      before_script:
+        - wget https://phar.phpunit.de/phpunit.phar
       script:
-      - wget https://phar.phpunit.de/phpunit.phar && php phpunit.phar --no-coverage
+        - php phpunit.phar --no-coverage
 
     - stage: coverage
       php: 7.1
+      before_script:
+        - wget https://phar.phpunit.de/phpunit.phar
       script:
-        - wget https://phar.phpunit.de/phpunit.phar && php phpunit.phar
+        - php phpunit.phar
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar && php coveralls.phar --verbose
 
     - stage: lint
       php: 7.1
+      before_script:
+        - wget https://github.com/phpstan/phpstan/releases/download/0.9.1/phpstan.phar
       script:
+        - php phpstan.phar analyse src --level max --configuration phpstan.neon
         - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
-        - wget https://github.com/phpstan/phpstan/releases/download/0.9.1/phpstan.phar && php phpstan.phar analyse src --level max --configuration phpstan.neon
 
 cache:
   directories:
