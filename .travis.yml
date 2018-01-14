@@ -1,8 +1,5 @@
 language: php
-php:
-  - 7.1
-  - 7.2
-  - nightly
+php: [ 7.1, 7.2, nightly ]
 sudo: false
 
 env:
@@ -15,15 +12,10 @@ matrix:
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
   - wget https://phar.io/releases/phive.phar
+  - php phive.phar install phpunit && ln -s ./tools/phpunit phpunit
 
 jobs:
   include:
-    - stage: test
-      before_script:
-        - php phive.phar install phpunit
-      script:
-        - ./tools/phpunit --no-coverage
-
     - stage: coverage
       php: 7.1
       before_script:
