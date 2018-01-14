@@ -14,14 +14,15 @@ matrix:
 
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
+  - wget https://phar.io/releases/phive.phar
 
 jobs:
   include:
     - stage: test
       before_script:
-        - wget https://phar.phpunit.de/phpunit.phar
+        - php phive.phar install phpunit
       script:
-        - php phpunit.phar --no-coverage
+        - ./tools/phpunit --no-coverage
 
     - stage: coverage
       php: 7.1
@@ -36,9 +37,9 @@ jobs:
     - stage: lint
       php: 7.1
       before_script:
-        - wget https://github.com/phpstan/phpstan/releases/download/0.9.1/phpstan.phar
+        - php phive.phar install phpstan
       script:
-        - php phpstan.phar analyse src --level max --configuration phpstan.neon
+        - ./tools/phpstan analyse src --level max --configuration phpstan.neon
         - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
 
 cache:
