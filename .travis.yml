@@ -41,6 +41,7 @@ jobs:
 cache:
   directories:
   - $HOME/.composer/cache/files
+  - $HOME/.phive
 
 notifications:
   irc: "irc.freenode.org#phpdocumentor"
