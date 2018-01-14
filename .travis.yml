@@ -14,28 +14,27 @@ matrix:
 
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
+  - wget https://phar.phpunit.de/phpunit.phar
 
 jobs:
   include:
     - stage: test
       script:
-      - vendor/bin/phpunit --no-coverage
+      - php phpunit.phar --no-coverage
 
     - stage: coverage
       php: 7.1
       script:
-        - vendor/bin/phpunit
+        - php phpunit.phar
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar && php coveralls.phar --verbose
 
     - stage: lint
       php: 7.1
-      before_script:
-        - composer create-project symplify/easy-coding-standard temp/ecs
       script:
-        - temp/ecs/bin/ecs check src tests
-        - vendor/bin/phpstan analyse src --level max --configuration phpstan.neon
+        - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
+        - wget https://github.com/phpstan/phpstan/releases/download/0.9.1/phpstan.phar && php phpstan.phar analyse src --level max --configuration phpstan.neon
 
 cache:
   directories:

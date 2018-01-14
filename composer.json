@@ -18,10 +18,6 @@
         "phpDocumentor\\Reflection\\": ["src"]
       }
     },
-    "require-dev": {
-        "phpunit/phpunit": "^6.5",
-        "phpstan/phpstan": "^0.9.0"
-    },
     "extra": {
         "branch-alias": {
           "dev-master": "1.0.x-dev"
