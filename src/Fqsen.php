@@ -33,9 +33,7 @@ final class Fqsen
     /**
      * Initializes the object.
      *
-     * @param string $fqsen
-     *
-     * @throws \InvalidArgumentException when $fqsen is not matching the format.
+     * @throws InvalidArgumentException when $fqsen is not matching the format.
      */
     public function __construct(string $fqsen)
     {
@@ -64,8 +62,6 @@ final class Fqsen
 
     /**
      * converts this class to string.
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -74,8 +70,6 @@ final class Fqsen
 
     /**
      * Returns the name of the element without path.
-     *
-     * @return string
      */
     public function getName(): string
     {

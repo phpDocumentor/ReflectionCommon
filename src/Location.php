@@ -27,9 +27,6 @@ final class Location
 
     /**
      * Initializes the location for an element using its line number in the file and optionally the column number.
-     *
-     * @param int $lineNumber
-     * @param int $columnNumber
      */
     public function __construct(int $lineNumber, int $columnNumber = 0)
     {
@@ -39,8 +36,6 @@ final class Location
 
     /**
      * Returns the line number that is covered by this location.
-     *
-     * @return integer
      */
     public function getLineNumber(): int
     {
@@ -49,8 +44,6 @@ final class Location
 
     /**
      * Returns the column number (character position on a line) for this location object.
-     *
-     * @return integer
      */
     public function getColumnNumber(): int
     {
