@@ -31,7 +31,7 @@ jobs:
         - php phpunit.phar
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
-        - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar && php coveralls.phar --verbose
+        - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar && php php-coveralls.phar --verbose
 
     - stage: lint
       php: 7.1
