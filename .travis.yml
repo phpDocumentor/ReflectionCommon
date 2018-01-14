@@ -10,7 +10,7 @@ matrix:
     - php: nightly
 
 install:
-  - composer install --no-interaction --prefer-dist --optimize-autoloader
+  - travis_retry composer install --no-interaction --prefer-dist --optimize-autoloader
 
 script:
   - phpunit --no-coverage
@@ -21,19 +21,19 @@ jobs:
       php: 7.1
       before_script:
         - echo "code coverage not working from phpunit.phar, so use composer require for now"
-        - composer require phpunit/phpunit
+        - travis_retry composer require phpunit/phpunit
       script:
         - ./vendor/bin/phpunit
       after_script:
-        - wget https://phar.io/releases/phive.phar
-        - php phive.phar --no-progress install --trust-gpg-keys E82B2FB314E9906E php-coveralls && ./tools/php-coveralls --verbose
-        - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+        - travis_retry wget https://phar.io/releases/phive.phar
+        - travis_retry php phive.phar --no-progress install --trust-gpg-keys E82B2FB314E9906E php-coveralls && ./tools/php-coveralls --verbose
+        - travis_retry wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
 
     - stage: lint
       php: 7.1
       before_script:
-        - wget https://phar.io/releases/phive.phar
-        - php phive.phar --no-progress install --trust-gpg-keys 8E730BA25823D8B5 phpstan
+        - travis_retry wget https://phar.io/releases/phive.phar
+        - travis_retry php phive.phar --no-progress install --trust-gpg-keys 8E730BA25823D8B5 phpstan
       script:
         - ./tools/phpstan analyse src --level max --configuration phpstan.neon
         - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
