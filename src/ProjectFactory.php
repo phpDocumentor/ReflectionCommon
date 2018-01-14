@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * phpDocumentor
  *
@@ -24,5 +26,5 @@ interface ProjectFactory
      * @param File[] $files
      * @return Project
      */
-    public function create($name, array $files);
+    public function create($name, array $files): Project;
 }

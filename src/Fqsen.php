@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * phpDocumentor
  *
@@ -35,7 +37,7 @@ final class Fqsen
      *
      * @throws \InvalidArgumentException when $fqsen is not matching the format.
      */
-    public function __construct($fqsen)
+    public function __construct(string $fqsen)
     {
         $matches = [];
         $result = preg_match(
@@ -65,7 +67,7 @@ final class Fqsen
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->fqsen;
     }
@@ -75,7 +77,7 @@ final class Fqsen
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
