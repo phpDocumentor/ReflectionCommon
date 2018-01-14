@@ -12,7 +12,7 @@ matrix:
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
   - wget https://phar.io/releases/phive.phar
-  - php phive.phar install phpunit && ln -s ./tools/phpunit phpunit
+  - php phive.phar install --trust-gpg-keys 4AA394086372C20A --target ./ phpunit
 
 jobs:
   include:
@@ -29,9 +29,9 @@ jobs:
     - stage: lint
       php: 7.1
       before_script:
-        - php phive.phar install phpstan
+        - php phive.phar install --trust-gpg-keys 8E730BA25823D8B5 --target ./ phpstan
       script:
-        - ./tools/phpstan analyse src --level max --configuration phpstan.neon
+        - ./phpstan analyse src --level max --configuration phpstan.neon
         - composer create-project symplify/easy-coding-standard temp/ecs && temp/ecs/bin/ecs check src tests
 
 cache:
