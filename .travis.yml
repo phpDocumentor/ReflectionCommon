@@ -29,6 +29,7 @@ jobs:
         - wget https://phar.phpunit.de/phpunit.phar
       script:
         - php phpunit.phar
+        - composer require phpunit/phpunit && ./vendor/bin/phpunit
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar && php php-coveralls.phar --verbose
