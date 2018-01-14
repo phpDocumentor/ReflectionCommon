@@ -12,12 +12,17 @@ matrix:
 install:
   - composer install --no-interaction --prefer-dist --optimize-autoloader
 
+script:
+  - phpunit --no-coverage
+
 jobs:
   include:
     - stage: coverage
       php: 7.1
+      before_script:
+        - composer require phpunit/phpunit
       script:
-        - phpunit
+        - ./vendor/bin/phpunit
       after_script:
         - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
         - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar && php php-coveralls.phar --verbose
