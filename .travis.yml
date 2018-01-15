@@ -22,8 +22,8 @@ jobs:
     - stage: coverage
       php: 7.1
       before_script:
-        - echo "code coverage not working from phpunit.phar, so use composer require for now"
-        - travis_retry composer require phpunit/phpunit
+        - echo "code coverage won't work from phpunit.phar, because this package is itself in that phar..."
+        - travis_retry composer require --dev phpunit/phpunit
       script:
         - ./vendor/bin/phpunit
       after_script:
