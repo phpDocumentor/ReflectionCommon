@@ -10,7 +10,8 @@ matrix:
     - php: nightly
 
 install:
-  - travis_retry composer install --no-interaction --prefer-dist --optimize-autoloader
+  - travis_retry composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev # phpunit won't install at same time due to ReflectionCommon inside it
+  - travis_retry composer require --dev phpunit/phpunit # so install phpunit separately
   - travis_retry wget https://phar.io/releases/phive.phar
 
 script:
