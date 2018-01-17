@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * phpDocumentor
  *
@@ -31,11 +33,9 @@ final class Fqsen
     /**
      * Initializes the object.
      *
-     * @param string $fqsen
-     *
-     * @throws \InvalidArgumentException when $fqsen is not matching the format.
+     * @throws InvalidArgumentException when $fqsen is not matching the format.
      */
-    public function __construct($fqsen)
+    public function __construct(string $fqsen)
     {
         $matches = [];
         $result = preg_match(
@@ -62,20 +62,16 @@ final class Fqsen
 
     /**
      * converts this class to string.
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->fqsen;
     }
 
     /**
      * Returns the name of the element without path.
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }

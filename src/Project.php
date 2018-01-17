@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * phpDocumentor
  *
@@ -21,5 +23,5 @@ interface Project
      *
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 }

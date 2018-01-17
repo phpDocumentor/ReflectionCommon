@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * This file is part of phpDocumentor.
  *
@@ -25,11 +27,8 @@ final class Location
 
     /**
      * Initializes the location for an element using its line number in the file and optionally the column number.
-     *
-     * @param int $lineNumber
-     * @param int $columnNumber
      */
-    public function __construct($lineNumber, $columnNumber = 0)
+    public function __construct(int $lineNumber, int $columnNumber = 0)
     {
         $this->lineNumber = $lineNumber;
         $this->columnNumber = $columnNumber;
@@ -37,20 +36,16 @@ final class Location
 
     /**
      * Returns the line number that is covered by this location.
-     *
-     * @return integer
      */
-    public function getLineNumber()
+    public function getLineNumber(): int
     {
         return $this->lineNumber;
     }
 
     /**
      * Returns the column number (character position on a line) for this location object.
-     *
-     * @return integer
      */
-    public function getColumnNumber()
+    public function getColumnNumber(): int
     {
         return $this->columnNumber;
     }
