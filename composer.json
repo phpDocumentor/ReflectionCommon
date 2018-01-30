@@ -18,12 +18,12 @@
         "phpDocumentor\\Reflection\\": ["src"]
       }
     },
-    "extra": {
-        "branch-alias": {
-          "dev-master": "1.0.x-dev"
-        }
-    },
     "require-dev": {
         "phpunit/phpunit": "^6"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
     }
 }
