@@ -21,8 +21,6 @@ interface Project
 {
     /**
      * Returns the name of the project.
-     *
-     * @return string
      */
     public function getName(): string;
 }
