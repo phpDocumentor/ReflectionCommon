@@ -15,7 +15,7 @@
     },
     "autoload" : {
       "psr-4" : {
-        "phpDocumentor\\Reflection\\": ["src"]
+        "phpDocumentor\\Reflection\\": "src/"
       }
     },
     "require-dev": {
