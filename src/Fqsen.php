@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace phpDocumentor\Reflection;
 
+use InvalidArgumentException;
+
 /**
  * Value Object for Fqsen.
  *
@@ -46,7 +48,7 @@ final class Fqsen
         );
 
         if ($result === 0) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf('"%s" is not a valid Fqsen.', $fqsen)
             );
         }
