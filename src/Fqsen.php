@@ -48,7 +48,7 @@ final class Fqsen
         );
 
         if ($result === 0) {
-            if(strpos($fqsen, "class@anonymous") === 0) {
+            if(strpos($fqsen, "\\class@anonymous") === 0) {
                 $matches=[null,null,$fqsen];
             } else {
                 throw new InvalidArgumentException(
