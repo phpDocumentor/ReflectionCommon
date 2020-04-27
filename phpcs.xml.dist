@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ruleset name="phpDocumentor">
+ <description>The coding standard for phpDocumentor.</description>
+
+    <file>src</file>
+    <file>tests/unit</file>
+    <arg value="p"/>
+
+    <rule ref="phpDocumentor">
+    </rule>
+</ruleset>

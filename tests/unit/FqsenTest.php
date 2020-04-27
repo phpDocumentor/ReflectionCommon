@@ -1,31 +1,31 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * phpDocumentor
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @copyright 2010-2018 Mike van Riel / Naenius (http://www.naenius.com)
- * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      http://phpdoc.org
  */
 
 namespace phpDocumentor\Reflection;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class FqsenTest
- * @coversDefaultClass phpDocumentor\Reflection\Fqsen
+ * @coversDefaultClass \phpDocumentor\Reflection\Fqsen
  */
 class FqsenTest extends TestCase
 {
     /**
-     * @param string $fqsen
      * @covers ::__construct
      * @dataProvider validFqsenProvider
      */
-    public function testValidFormats($fqsen, $name)
+    public function testValidFormats(string $fqsen, string $name) : void
     {
         $instance = new Fqsen($fqsen);
         $this->assertEquals($name, $instance->getName());
@@ -34,9 +34,9 @@ class FqsenTest extends TestCase
     /**
      * Data provider for ValidFormats tests. Contains a complete list from psr-5 draft.
      *
-     * @return array
+     * @return array<array<string>>
      */
-    public function validFqsenProvider()
+    public function validFqsenProvider() : array
     {
         return [
             ['\\', ''],
@@ -55,22 +55,21 @@ class FqsenTest extends TestCase
     }
 
     /**
-     * @param string $fqsen
      * @covers ::__construct
      * @dataProvider invalidFqsenProvider
-     * @expectedException \InvalidArgumentException
      */
-    public function testInValidFormats($fqsen)
+    public function testInValidFormats(string $fqsen) : void
     {
+        $this->expectException(InvalidArgumentException::class);
         new Fqsen($fqsen);
     }
 
     /**
      * Data provider for invalidFormats tests. Contains a complete list from psr-5 draft.
      *
-     * @return array
+     * @return array<array<string>>
      */
-    public function invalidFqsenProvider()
+    public function invalidFqsenProvider() : array
     {
         return [
             ['\My\*'],
@@ -84,7 +83,7 @@ class FqsenTest extends TestCase
      * @covers ::__construct
      * @covers ::__toString
      */
-    public function testToString()
+    public function testToString() : void
     {
         $className = new Fqsen('\\phpDocumentor\\Application');
 
