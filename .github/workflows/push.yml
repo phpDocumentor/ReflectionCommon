@@ -26,13 +26,6 @@ jobs:
         with:
           args: install --no-interaction --prefer-dist --optimize-autoloader
 
-      - name: composer-require-checker
-        uses: docker://phpga/composer-require-checker-ga
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: check --config-file ./composer-require-config.json composer.json
-
       - name: Install phive
         run: make install-phive
 
