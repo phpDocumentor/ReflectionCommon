@@ -1,5 +1,15 @@
 /.gitattributes export-ignore
 /.gitignore export-ignore
+/.scrutinizer.yml export-ignore
+/.travis.yml export-ignore
+/appveyor.yml export-ignore
+/easy-coding-standard.neon export-ignore
+/Makefile export-ignore
+/phive.xml export-ignore
+/phpcs.xml.dist export-ignore
+/phpmd.xml.dist export-ignore
+/phpstan.neon export-ignore
+/psalm.xml export-ignore
 /composer.lock export-ignore
 /phpunit.xml.dist export-ignore
 /tests/ export-ignore
