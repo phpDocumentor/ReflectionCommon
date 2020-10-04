@@ -14,10 +14,8 @@ declare(strict_types=1);
 namespace phpDocumentor\Reflection;
 
 use InvalidArgumentException;
-use function assert;
 use function end;
 use function explode;
-use function is_string;
 use function preg_match;
 use function sprintf;
 use function trim;
@@ -65,8 +63,7 @@ final class Fqsen
             $this->name = $matches[2];
         } else {
             $matches = explode('\\', $fqsen);
-            $name = end($matches);
-            assert(is_string($name));
+            $name = (string) end($matches);
             $this->name = trim($name, '()');
         }
     }

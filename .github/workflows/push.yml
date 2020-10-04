@@ -51,7 +51,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.2
+          php-version: 7.3
           ini-values: memory_limit=2G, display_errors=On, error_reporting=-1
           coverage: pcov
 
@@ -90,7 +90,7 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macOS-latest
-        php-versions: ['7.2', '7.3', '7.4', '8.0']
+        php-versions: ['7.3', '7.4', '8.0']
     name: Unit tests for PHP version ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
     needs:
       - setup
@@ -180,7 +180,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.2
+          php-version: 7.3
           ini-values: memory_limit=2G, display_errors=On, error_reporting=-1
           tools: psalm
           coverage: none
