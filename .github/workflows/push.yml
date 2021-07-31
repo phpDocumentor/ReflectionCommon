@@ -64,20 +64,10 @@ jobs:
             all-tools-${{ github.sha }}-
             all-tools-
 
-      - name: Get composer cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache composer dependencies
-        uses: actions/cache@v1
+      - name: Install Composer dependencies & cache dependencies
+        uses: "ramsey/composer-install@v1"
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ubuntu-latest-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ubuntu-latest-composer-
-
-      - name: Install Composer dependencies
-        run: |
-          composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+          composer-options: --optimize-autoloader
 
       - name: Run PHPUnit
         run: php tools/phpunit
@@ -114,20 +104,10 @@ jobs:
           ini-values: memory_limit=2G, display_errors=On, error_reporting=-1
           coverage: none
 
-      - name: Get composer cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache composer dependencies
-        uses: actions/cache@v1
+      - name: Install Composer dependencies & cache dependencies
+        uses: "ramsey/composer-install@v1"
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-
-      - name: Install Composer dependencies
-        run: |
-          composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+          composer-options: --optimize-autoloader
 
       - name: Run PHPUnit
         continue-on-error: true
@@ -185,20 +165,10 @@ jobs:
           tools: psalm
           coverage: none
 
-      - name: Get composer cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache composer dependencies
-        uses: actions/cache@v1
+      - name: Install Composer dependencies & cache dependencies
+        uses: "ramsey/composer-install@v1"
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-
-      - name: Install Composer dependencies
-        run: |
-          composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+          composer-options: --optimize-autoloader
 
       - name: Psalm
         run: psalm --output-format=github
