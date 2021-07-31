@@ -85,6 +85,7 @@ jobs:
   phpunit:
     runs-on: ${{ matrix.operating-system }}
     strategy:
+      fail-fast: false
       matrix:
         operating-system:
           - ubuntu-latest
@@ -130,7 +131,6 @@ jobs:
           composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
 
       - name: Run PHPUnit
-        continue-on-error: true
         run: php tools/phpunit
 
   codestyle:
