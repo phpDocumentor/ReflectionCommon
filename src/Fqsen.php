@@ -61,9 +61,11 @@ final class Fqsen
 
         if (isset($matches[2])) {
             $this->name = $matches[2];
+        } elseif ($fqsen === '\\') {
+            $this->name = '';
         } else {
             $matches = explode('\\', $fqsen);
-            $name = (string) end($matches);
+            $name = end($matches);
             $this->name = trim($name, '()');
         }
     }
