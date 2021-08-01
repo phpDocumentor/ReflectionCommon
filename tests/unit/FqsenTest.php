@@ -23,6 +23,7 @@ class FqsenTest extends TestCase
 {
     /**
      * @covers ::__construct
+     * @covers ::getName
      * @dataProvider validFqsenProvider
      */
     public function testValidFormats(string $fqsen, string $name) : void
