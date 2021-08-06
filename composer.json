@@ -18,7 +18,9 @@
         "phpDocumentor\\Reflection\\": "src/"
       }
     },
-    "require-dev": {},
+    "require-dev": {
+        "psalm/phar": "^4.8"
+    },
     "extra": {
         "branch-alias": {
             "dev-2.x": "2.x-dev"
