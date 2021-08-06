@@ -3,6 +3,8 @@ on:
     branches:
       - 2.x
   pull_request:
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
 name: Qa workflow
 jobs:
   setup:
