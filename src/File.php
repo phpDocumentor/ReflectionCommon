@@ -21,15 +21,15 @@ interface File
     /**
      * Returns the content of the file as a string.
      */
-    public function getContents() : string;
+    public function getContents(): string;
 
     /**
      * Returns md5 hash of the file.
      */
-    public function md5() : string;
+    public function md5(): string;
 
     /**
      * Returns an relative path to the file.
      */
-    public function path() : string;
+    public function path(): string;
 }

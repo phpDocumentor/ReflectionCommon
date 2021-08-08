@@ -38,7 +38,7 @@ final class Location
     /**
      * Returns the line number that is covered by this location.
      */
-    public function getLineNumber() : int
+    public function getLineNumber(): int
     {
         return $this->lineNumber;
     }
@@ -46,7 +46,7 @@ final class Location
     /**
      * Returns the column number (character position on a line) for this location object.
      */
-    public function getColumnNumber() : int
+    public function getColumnNumber(): int
     {
         return $this->columnNumber;
     }

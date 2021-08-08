@@ -21,10 +21,10 @@ interface Element
     /**
      * Returns the Fqsen of the element.
      */
-    public function getFqsen() : Fqsen;
+    public function getFqsen(): Fqsen;
 
     /**
      * Returns the name of the element.
      */
-    public function getName() : string;
+    public function getName(): string;
 }
