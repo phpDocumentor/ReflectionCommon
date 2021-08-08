@@ -21,5 +21,5 @@ interface Project
     /**
      * Returns the name of the project.
      */
-    public function getName() : string;
+    public function getName(): string;
 }

@@ -26,7 +26,7 @@ class FqsenTest extends TestCase
      * @covers ::getName
      * @dataProvider validFqsenProvider
      */
-    public function testValidFormats(string $fqsen, string $name) : void
+    public function testValidFormats(string $fqsen, string $name): void
     {
         $instance = new Fqsen($fqsen);
         $this->assertEquals($name, $instance->getName());
@@ -37,7 +37,7 @@ class FqsenTest extends TestCase
      *
      * @return array<array<string>>
      */
-    public function validFqsenProvider() : array
+    public function validFqsenProvider(): array
     {
         return [
             ['\\', ''],
@@ -59,7 +59,7 @@ class FqsenTest extends TestCase
      * @covers ::__construct
      * @dataProvider invalidFqsenProvider
      */
-    public function testInValidFormats(string $fqsen) : void
+    public function testInValidFormats(string $fqsen): void
     {
         $this->expectException(InvalidArgumentException::class);
         new Fqsen($fqsen);
@@ -70,7 +70,7 @@ class FqsenTest extends TestCase
      *
      * @return array<array<string>>
      */
-    public function invalidFqsenProvider() : array
+    public function invalidFqsenProvider(): array
     {
         return [
             ['\My\*'],
@@ -84,7 +84,7 @@ class FqsenTest extends TestCase
      * @covers ::__construct
      * @covers ::__toString
      */
-    public function testToString() : void
+    public function testToString(): void
     {
         $className = new Fqsen('\\phpDocumentor\\Application');
 

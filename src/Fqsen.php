@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace phpDocumentor\Reflection;
 
 use InvalidArgumentException;
+
 use function end;
 use function explode;
 use function preg_match;
@@ -73,7 +74,7 @@ final class Fqsen
     /**
      * converts this class to string.
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->fqsen;
     }
@@ -81,7 +82,7 @@ final class Fqsen
     /**
      * Returns the name of the element without path.
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
