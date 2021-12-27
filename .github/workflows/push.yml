@@ -67,7 +67,7 @@ jobs:
             all-tools-
 
       - name: Install Composer dependencies & cache dependencies
-        uses: "ramsey/composer-install@v1"
+        uses: "ramsey/composer-install@v2"
         with:
           composer-options: --optimize-autoloader
 
@@ -108,7 +108,7 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies & cache dependencies
-        uses: "ramsey/composer-install@v1"
+        uses: "ramsey/composer-install@v2"
         with:
           composer-options: --optimize-autoloader
 
@@ -167,7 +167,7 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies & cache dependencies
-        uses: "ramsey/composer-install@v1"
+        uses: "ramsey/composer-install@v2"
         with:
           composer-options: --optimize-autoloader
 
