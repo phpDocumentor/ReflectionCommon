@@ -1,7 +1,7 @@
 {
     "name": "phpdocumentor/reflection-common",
     "keywords": ["phpdoc", "phpDocumentor", "reflection", "static analysis", "FQSEN"],
-    "homepage": "http://www.phpdoc.org",
+    "homepage": "https://www.phpdoc.org",
     "description": "Common reflection classes used by phpdocumentor to reflect the code structure",
     "license": "MIT",
     "authors": [
