@@ -23,12 +23,6 @@ jobs:
     with:
       composer-root-version: "2.x-dev"
 
-  dependency-analysis:
-    name: "Dependency analysis"
-    uses: "phpDocumentor/.github/.github/workflows/dependency-analysis.yml@v0.1.0"
-    with:
-      composer-root-version: "2.x-dev"
-
   lint-root:
     name: "Lint root"
     uses: "phpDocumentor/.github/.github/workflows/lint.yml@main"
