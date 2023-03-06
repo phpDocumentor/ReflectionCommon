@@ -19,7 +19,7 @@ jobs:
 
   coding-standards:
     name: "Coding Standards"
-    uses: "phpDocumentor/.github/.github/workflows/coding-standards.yml@v0.1.0"
+    uses: "phpDocumentor/.github/.github/workflows/coding-standards.yml@v0.3.0"
     with:
       composer-root-version: "2.x-dev"
 
@@ -31,14 +31,14 @@ jobs:
 
   static-analysis:
     name: "Static analysis"
-    uses: "phpDocumentor/.github/.github/workflows/static-analysis.yml@v0.1.0"
+    uses: "phpDocumentor/.github/.github/workflows/static-analysis.yml@v0.3.0"
     with:
       php-extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, fileinfo, pcntl, posix"
       composer-root-version: "2.x-dev"
 
   unit-tests:
     name: "Unit test"
-    uses: "phpDocumentor/.github/.github/workflows/continues-integration.yml@v0.1.0"
+    uses: "phpDocumentor/.github/.github/workflows/continues-integration.yml@v0.3.0"
     with:
       composer-root-version: "2.x-dev"
       php-versions: "['7.4', '8.0', '8.1', '8.2']"
