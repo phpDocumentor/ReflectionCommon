@@ -53,9 +53,13 @@ final class Fqsen
         );
 
         if ($result === 0) {
-            throw new InvalidArgumentException(
-                sprintf('"%s" is not a valid Fqsen.', $fqsen)
-            );
+            if(strpos($fqsen, "\\class@anonymous") === 0) {
+                $matches=[null,null,$fqsen];
+            } else {
+                throw new InvalidArgumentException(
+                    sprintf('"%s" is not a valid Fqsen.', $fqsen)
+                );
+            }
         }
 
         $this->fqsen = $fqsen;
